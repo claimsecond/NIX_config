@@ -208,6 +208,10 @@ bar {
         status_command i3status
 }
 
+# Add gaps between windows and screen edges
+gaps inner 10
+gaps outer 5
+
 # Показывать только границы у активного окна, скрыть заголовки
 for_window [class=".*"] border pixel 2
 new_window pixel 2
