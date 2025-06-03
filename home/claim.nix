@@ -5,8 +5,6 @@
   home.homeDirectory = "/home/claim";
   home.stateVersion = "25.05";
 
-  services.xserver.desktopManager.wallpaper.mode = "fill";
-
   programs.neovim.enable = true;
   programs.zsh.enable = true;
   programs.git.enable = true;
@@ -220,6 +218,7 @@ new_window pixel 2
 hide_edge_borders smart
 
 exec --no-startup-id xrandr -s 1920x1080
+exec --no-startup-id xsetroot -solid "#2e3440"
 '';
 
   # Пример: добавить свои dotfiles, алиасы, плагины и т.д.
