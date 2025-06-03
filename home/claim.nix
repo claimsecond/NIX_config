@@ -218,6 +218,8 @@ bar {
         }
 }
 
+client.focused          #88c0d0 #88c0d0 #2e3440 #eceff4 #88c0d0
+
 # Add gaps between windows and screen edges
 gaps inner 3
 gaps outer 3
