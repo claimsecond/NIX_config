@@ -17,6 +17,9 @@
         name = "monospace";
         size = 9;
       };
+      keybindings = {
+        "Mod4+Return" = "exec kitty";
+      };
       # Здесь можно добавить другие настройки i3
     };
   };
