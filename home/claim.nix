@@ -210,7 +210,7 @@ bar {
 
 # Add gaps between windows and screen edges
 gaps inner 3
-gaps outer 5
+gaps outer 3
 
 # Показывать только границы у активного окна, скрыть заголовки
 for_window [class=".*"] border pixel 2
