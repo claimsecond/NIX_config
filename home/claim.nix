@@ -206,6 +206,16 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+
+        colors {
+            background #2e3440
+            statusline #eceff4
+            separator  #4c566a
+
+            focused_workspace  #4c566a #4c566a #eceff4
+            inactive_workspace #2e3440 #2e3440 #d8dee9
+            urgent_workspace   #bf616a #bf616a #eceff4
+        }
 }
 
 # Add gaps between windows and screen edges
