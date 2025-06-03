@@ -19,6 +19,7 @@
       };
       keybindings = {
         "Mod4+Return" = "exec kitty";
+        "Mod4+q" = "kill";
       };
       # Здесь можно добавить другие настройки i3
     };
