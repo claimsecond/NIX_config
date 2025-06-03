@@ -10,6 +10,17 @@
   programs.git.enable = true;
   programs.firefox.enable = true;
 
+  xsession.windowManager.i3 = {
+    enable = true;
+    config = {
+      font = {
+        name = "monospace";
+        size = 9;
+      };
+      # Здесь можно добавить другие настройки i3
+    };
+  };
+
   # Пример: добавить свои dotfiles, алиасы, плагины и т.д.
   # home.file.".config/nvim/init.vim".text = "...";
 }
