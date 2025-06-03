@@ -5,6 +5,8 @@
   home.homeDirectory = "/home/claim";
   home.stateVersion = "25.05";
 
+  services.xserver.desktopManager.wallpaper.mode = "fill";
+
   programs.neovim.enable = true;
   programs.zsh.enable = true;
   programs.git.enable = true;
