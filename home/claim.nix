@@ -201,6 +201,11 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# Показывать только границы у активного окна, скрыть заголовки
+for_window [class=".*"] border pixel 2
+new_window pixel 2
+hide_edge_borders smart
 '';
 
   # Пример: добавить свои dotfiles, алиасы, плагины и т.д.
