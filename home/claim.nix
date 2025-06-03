@@ -32,7 +32,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 11 
+font pango:monospace 9 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -212,6 +212,8 @@ bar {
 for_window [class=".*"] border pixel 2
 new_window pixel 2
 hide_edge_borders smart
+
+exec --no-startup-id xrandr -s 1920x1080
 '';
 
   # Пример: добавить свои dotfiles, алиасы, плагины и т.д.
