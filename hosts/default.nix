@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   networking.hostName = "nixos";
   time.timeZone = "Europe/Kyiv";
