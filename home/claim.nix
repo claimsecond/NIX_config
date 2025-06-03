@@ -13,10 +13,7 @@
   xsession.windowManager.i3 = {
     enable = true;
     config = {
-      font = {
-        name = "monospace";
-        size = 9;
-      };
+      font = "pango:monospace 9";
       keybindings = {
         "Mod4+Return" = "exec kitty";
         "Mod4+q" = "kill";
