@@ -11,9 +11,9 @@
   programs.firefox.enable = true;
   programs.kitty = {
     enable = true;
+    font.size = 12;
     extraConfig = ''
       confirm_os_window_close 0
-      font_size 11
     '';
   };
 
