@@ -11,7 +11,10 @@
   programs.firefox.enable = true;
   programs.kitty = {
     enable = true;
-    font.size = 12;
+    font = {
+      name = "FiraCode Nerd Font";
+      size = 12;
+    };
     extraConfig = ''
       confirm_os_window_close 0
     '';
