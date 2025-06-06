@@ -240,15 +240,4 @@ exec --no-startup-id xsetroot -solid "#2e3440"
   # Пример: добавить свои dotfiles, алиасы, плагины и т.д.
   # home.file.".config/nvim/init.vim".text = "...";
 
-  imports = [
-    zen-browser.homeModules.twilight
-  ];
-
-  programs.zen-browser = {
-    enable = true;
-    policies = {
-      DisableAppUpdate = true;
-      DisableTelemetry = true;
-    };
-  };
 }
