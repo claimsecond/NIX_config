@@ -15,8 +15,8 @@
 
   services.xserver = {
     enable = true;
-    xkb.layout = "us,ru,ua";
-    xkb.options = "grp:alt_shift_toggle";
+    layout = "us,ru,ua";
+    xkbOptions = "grp:alt_shift_toggle";
     windowManager.i3.enable = true;
   };
 
