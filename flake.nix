@@ -16,7 +16,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.claim = import ./home/claim.nix;
+          home-manager.sharedModules = [ ./home/claim.nix ];
         }
       ];
     };
