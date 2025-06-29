@@ -13,7 +13,8 @@
   programs.neovim.enable = true;
   programs.zsh.enable = true;
   programs.git.enable = true;
-  programs.firefox.enable = true;
+  programs.firefox.enable = true; 
+  programs.yazi.enable = true;
 
   home-manager.url = "github:nix-community/home-manager";
 }
