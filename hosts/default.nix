@@ -36,7 +36,8 @@
   system.stateVersion = "25.05";
 
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = true; 
+  boot.loader.systemd-boot.configurationLimit = 10; # only 10 generations are kept
 
   nix.gc = {
     automatic = true;
@@ -45,5 +46,5 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest; 
-  boot.loader.systemd-boot.configurationLimit = 10; # only 10 generations are kept
+  
 }

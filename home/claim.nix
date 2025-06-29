@@ -6,7 +6,8 @@
   home.stateVersion = "25.05"; 
   imports = [
     ./i3-config.nix
-    ./kitty-config.nix
+    ./kitty-config.nix 
+    ./yazi-config.nix
   ];
 
   programs.neovim.enable = true;
