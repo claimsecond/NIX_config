@@ -44,5 +44,6 @@
     options = "--delete-older-than 30d";
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest; 
+  boot.loader.systemd-boot.configurationLimit = 10; # only 10 generations are kept
 }
