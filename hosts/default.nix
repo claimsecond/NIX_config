@@ -27,7 +27,8 @@
     btop
     ncdu
     google-chrome
-    ripgrep
+    ripgrep 
+    yazi
   ];
 
   nixpkgs.config.allowUnfree = true;
