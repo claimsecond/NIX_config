@@ -10,8 +10,6 @@
         { on = [ "!" ]; run = "shell \"$SHELL\" --block"; desc = "Open shell here"; }
         { on = [ "f" "g" ]; run = "plugin fg"; desc = "find file by content (fuzzy match)"; }
         { on = [ "f" "a" ]; run = "plugin fg --args='rga'"; desc = "find file by content (ripgrep-all)"; }
-        { on = [ "g" "s" ]; run = "cd /mnt/samba"; desc = "Go to the network drive"; }
-        { on = [ "g" "w" ]; run = "cd /mnt/windisk/Documents and Settings/claim"; desc = "Go to the Windows profile"; }
       ];
     };
 
