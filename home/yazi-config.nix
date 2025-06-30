@@ -199,7 +199,7 @@
             .. rga_prefix
             .. [[{q} }" --delimiter : --preview 'rga --smart-case --pretty --context 5 {q} {}' --preview-window 'up,60%' --nth '3..']],
     }
-    local fg_args = "rg --color=always --line-number --no-heading --smart-case '' | fzf --ansi --preview='" .. preview_cmd .. "' --delimiter=':' --preview-window='up:60%' --nth='3..'"
+    local fg_args = 'rg --color=always --line-number --no-heading --smart-case \'\' | fzf --ansi --preview="' .. preview_cmd .. '" --delimiter=\':\' --preview-window=\'up:60%\' --nth=\'3..\''
 
     local function split_and_get_first(input, sep)
         if sep == nil then
