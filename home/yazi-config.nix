@@ -1,165 +1,49 @@
 { config, pkgs, ... }:
 
 {
-  programs.yazi.enable = true;
+  programs.yazi = {
+    enable = true;
 
-  home.file.".config/yazi/yazi.toml".text = ''
-    $schema = "https://yazi-rs.github.io/schemas/yazi.json"
+    keymap = {
+      manager.keymap = [
+        { on = [ "F" ]; run = "plugin smart-filter"; desc = "Smart filter"; }
+        { on = [ "!" ]; run = "shell \"$SHELL\" --block"; desc = "Open shell here"; }
+        { on = [ "f" "g" ]; run = "plugin fg"; desc = "find file by content (fuzzy match)"; }
+        { on = [ "f" "a" ]; run = "plugin fg --args='rga'"; desc = "find file by content (ripgrep-all)"; }
+        { on = [ "g" "s" ]; run = "cd /mnt/samba"; desc = "Go to the network drive"; }
+        { on = [ "g" "w" ]; run = "cd /mnt/windisk/Documents and Settings/claim"; desc = "Go to the Windows profile"; }
+      ];
+    };
 
-    [general]
-    show_hidden = true # Show hidden files by default 
+    settings = {
+      general = {
+        show_hidden = true;
+      };
+      manager = {
+        layout = [ 1 4 3 ];
+        sort_by = "natural";
+        sort_sensitive = true;
+        sort_reverse = false;
+        sort_dir_first = true;
+        linemode = "none";
+        show_hidden = true;
+        show_symlink = true;
+      };
+      preview = {
+        wrap = "yes";
+      };
+    };
 
-    [manager]
-    layout         = [1, 4, 3]
-    sort_by        = "natural"
-    sort_sensitive = true
-    sort_reverse   = false
-    sort_dir_first = true
-    linemode       = "none"
-    show_hidden    = true
-    show_symlink   = true
+    theme = { };
+  };
 
-    [preview]
-    wrap = "yes"
-
-    [opener]
-    folder = [
-    { run = 'hyprctl dispatch exec "[float; size 60% 60%; center 1] nautilus" "$@"', orphan = true, desc = "nautilus", for = "linux" },
-    { run = 'kitty --detach nvim "$@"', orphan = true, desc = "neovim (detached)", for = "linux" },
-    { run = 'cursor  "$@"', orphan = true, desc = "Cursor", for = "linux" },
-    { run = 'kitty "$@"', orphan = true, desc = "kitty", for = "linux" },
-    { run = 'nsxiv "$@"', orphan = true, desc = "nsxiv", for = "linux" },
-    { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-    ]
-
-    text = [
-    { run = '$EDITOR "$@"', block = true, desc = "$EDITOR", for = "linux" },
-    { run = 'nvim "$@"', block = true, desc = "neovim", for = "linux" },
-    { run = 'kitty --detach nvim "$@"', block = true, desc = "neovim (detached)", for = "linux" },
-    { run = 'cursor  "$@"', orphan = true, desc = "Cursor", for = "linux" },
-    { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-    ]
-
-    document = [
-    { run = 'zathura "$@"', orphan = true, desc = "zathura", for = "linux" }, 
-    { run = 'okular "$@"', orphan = true, desc = "okular", for = "linux" },
-    { run = 'koodo-reader "$@"', orphan = true, desc = "koodo-reader", for = "linux" },
-    { run = 'libreoffice "$@"', orphan = true, desc = "libreoffice", for = "linux" }, 
-    { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-    ]
-
-    image = [
-    { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" }, 
-    { run = 'nsxiv "$@"', orphan = true, desc = "nsxiv", for = "linux" },
-    { run = 'krita "$@"', orphan = true, desc = "krita", for = "linux" },
-    ]
-
-    video = [
-    { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-    { run = 'mpv --force-window "$@"', orphan = true, desc = "mpv", for = "linux" },
-    { run = 'vlc "$@"', orphan = true, desc = "vlc", for = "linux" },
-    ]
-
-    audio = [
-    { run = 'mpv --force-window "$@"', orphan = true, desc = "mpv", for = "linux" },
-    { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-    { run = 'vlc "$@"', orphan = true, desc = "vlc", for = "linux" },
-    ]
-
-    html = [
-    { run = 'google-chrome-stable "$@"', orphan = true, desc = "chrome", for = "linux" },
-    ]
-
-    edit = [
-        { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" }, 
-        { run = 'cursor "$@"', desc = "Cursor", orphan = true, for = "unix" }
-    ] 
-
-    fallback = [
-    { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-    ]
-
-    [open]
-    rules = [
-    { name = "*/", use = "folder" }, 
-
-    { mime = "text/html", use = "html" },
-    { mime = "text/*", use = "text" },
-    { mime = "image/*", use = "image" },
-    { mime = "video/*", use = "video" },
-    { mime = "application/octet-stream", use = "video" },
-    { mime = "audio/*", use = "audio" },
-    { mime = "inode/x-empty", use = "text" },
-    { mime = "application/json", use = "text" },
-
-    { mime = "application/zip", use = "archive" },
-    { mime = "application/gzip", use = "archive" },
-    { mime = "application/x-bzip", use = "archive" },
-    { mime = "application/x-bzip2", use = "archive" },
-    { mime = "application/x-tar", use = "archive" },
-    { mime = "application/x-7z-compressed", use = "archive" },
-    { mime = "application/x-rar", use = "archive" },
-
-    { mime = "application/pdf", use = "document" },
-    { mime = "application/epub+zip", use = "document" },
-    { mime = "application/x-mobipocket-ebook", use = "document" },
-
-    { name = "*.lua", use = "edit" },
-
-    { mime = "*", use = "fallback" },
-    ]
-    '';
-
-  home.file.".config/yazi/package.toml".text = ''
-    [plugin]
-    deps = [{ use = "yazi-rs/plugins:smart-filter", rev = "e4aaf43" }, { use = "lpnh/fg", rev = "9bba743" }]
-
-    [flavor]
-    deps = []
-    '';
-
-  home.file.".config/yazi/keymap.toml".text = ''
-    [[manager.prepend_keymap]]
-    on   = "F"
-    run  = "plugin smart-filter"
-    desc = "Smart filter"
-
-    [[manager.prepend_keymap]]
-    on   = "!"
-    run  = 'shell "$SHELL" --block'
-    desc = "Open shell here"
-
-    [[manager.prepend_keymap]]
-    on   = [ "f","g" ]
-    run  = "plugin fg"
-    desc = "find file by content (fuzzy match)"
-
-    [[manager.prepend_keymap]]
-    on   = [ "f","a" ]
-    run  = "plugin fg --args='rga'"
-    desc = "find file by content (ripgrep-all)"
-
-    [[manager.prepend_keymap]]
-    on   = [ "g", "s" ]
-    run  = "cd /mnt/samba"
-    desc = "Go to the network drive"
-
-    [[manager.prepend_keymap]] 
-    on = [ "g", "w" ] 
-    run = "cd /mnt/windisk/Documents and Settings/claim" 
-    desc = "Go to the Windows profile"
-    '';
-
-  home.file.".config/yazi/theme.toml".text = "";
-  home.file.".config/yazi/plugins".source = ./yazi/plugins;
-
+  # Плагины (Lua-скрипты) подключаем через home.file
   home.file.".config/yazi/plugins/fg.yazi/init.lua".text = ''
     local shell = os.getenv("SHELL"):match(".*/(.*)")
 
     local preview_opts = {
         default = [===[line={2} && begin=$( if [[ $line -lt 7 ]]; then echo $((line-1)); else echo 6; fi ) && bat --highlight-line={2} --color=always --line-range $((line-begin)):$((line+10)) {1}]===],
         fish = [[set line {2} && set begin ( test $line -lt 7  &&  echo (math "$line-1") || echo  6 ) && bat --highlight-line={2} --color=always --line-range (math "$line-$begin"):(math "$line+10") {1}]],
-
         nu = [[let line = ({2} | into int); let begin = if $line < 7 { $line - 1 } else { 6 }; bat --highlight-line={2} --color=always --line-range $'($line - $begin):($line + 10)' {1}]],
     }
     local preview_cmd = preview_opts[shell] or preview_opts.default
@@ -260,7 +144,7 @@
     end
 
     return { entry = entry }
-    '';
+  '';
 
   home.file.".config/yazi/plugins/smart-filter.yazi/init.lua".text = ''
     local hovered = ya.sync(function()
@@ -310,5 +194,5 @@
     end
 
     return { entry = entry }
-    '';
+  '';
 } 
