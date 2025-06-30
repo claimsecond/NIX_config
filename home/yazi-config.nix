@@ -5,12 +5,12 @@
     enable = true;
 
     keymap = {
-      manager.keymap = [
-        { on = [ "F" ]; run = "plugin smart-filter"; desc = "Smart filter"; }
-        { on = [ "!" ]; run = "shell \"$SHELL\" --block"; desc = "Open shell here"; }
-        { on = [ "f" "g" ]; run = "plugin fg"; desc = "find file by content (fuzzy match)"; }
-        { on = [ "f" "a" ]; run = "plugin fg --args='rga'"; desc = "find file by content (ripgrep-all)"; }
-      ];
+#      manager.keymap = [
+#        { on = [ "F" ]; run = "plugin smart-filter"; desc = "Smart filter"; }
+#        { on = [ "!" ]; run = "shell \"$SHELL\" --block"; desc = "Open shell here"; }
+#        { on = [ "f" "g" ]; run = "plugin fg"; desc = "find file by content (fuzzy match)"; }
+#        { on = [ "f" "a" ]; run = "plugin fg --args='rga'"; desc = "find file by content #(ripgrep-all)"; }
+#      ];
     };
 
     settings = {
