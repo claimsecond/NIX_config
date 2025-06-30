@@ -3,7 +3,8 @@
 {
   home.username = "claim";
   home.homeDirectory = "/home/claim";
-  home.stateVersion = "25.05"; 
+  home.stateVersion = "25.05";
+
   imports = [
     ./i3-config.nix
     ./kitty-config.nix 
@@ -13,7 +14,5 @@
   programs.neovim.enable = true;
   programs.zsh.enable = true;
   programs.git.enable = true;
-  programs.firefox.enable = true; 
-
-  home-manager.url = "github:nix-community/home-manager";
+  programs.firefox.enable = true;
 }
