@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
-
+let
+  fg = pkgs.fetchFromGitHub {
+    owner = "lpnh";
+    repo = "fg.yazi";
+    rev = "9bba7430dbcd30995deea600499b069fe6067a3e";
+    hash = "sha256-3VjTL/q4gSDIHyPXwUIQA/26bbhWya+01EZbxSKzzQo=";
+  };
+in
 {
   programs.yazi = {
     enable = true; 
@@ -37,9 +44,9 @@
     theme = { }; 
 
     plugins = { 
-      yaziPlugins.rich-preview 
-      yaziPlugins.glow 
-      yaziPlugins.smart-filter 
+      rich-preview = pkgs.yaziPlugins.rich-preview 
+      glow = pkgs.yaziPlugins.glow 
+      smart-filter = pkgs.yaziPlugins.smart-filter 
       fg = fg
     };
   };
