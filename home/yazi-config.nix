@@ -2,10 +2,12 @@
 
 {
   programs.yazi = {
-    enable = true;
+    enable = true; 
+    enableBashIntegration = true;
+    enableZshIntegration = true;
 
     keymap = {
-      manager.keymap = [
+      manager.prepend_keymap = [
         { on = [ "F" ]; run = "plugin smart-filter"; desc = "Smart filter"; }
       #  { on = [ "!" ]; run = "shell $SHELL --block"; desc = "Open shell here"; }
       #  { on = [ "f" "g" ]; run = "plugin fg"; desc = "find file by content (fuzzy match)"; }
