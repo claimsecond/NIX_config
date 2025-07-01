@@ -31,9 +31,6 @@
     ripgrep-all
     fzf
     yazi 
-    yaziPlugins.rich-preview 
-    yaziPlugins.glow 
-    yaziPlugins.smart-filter
   ];
 
   nixpkgs.config.allowUnfree = true;
