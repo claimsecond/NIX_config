@@ -28,8 +28,12 @@
     ncdu
     google-chrome
     ripgrep 
+    ripgrep-all
+    fzf
     yazi 
-    pkgs.yaziPlugins.rich-preview
+    yaziPlugins.rich-preview 
+    yaziPlugins.glow 
+    yaziPlugins.smart-filter
   ];
 
   nixpkgs.config.allowUnfree = true;
