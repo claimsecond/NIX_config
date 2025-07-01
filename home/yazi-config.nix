@@ -37,9 +37,9 @@
     theme = { }; 
 
     plugins = { 
-      pkgs.yaziPlugins.rich-preview 
-      pkgs.yaziPlugins.glow 
-      pkgs.yaziPlugins.smart-filter 
+      yaziPlugins.rich-preview 
+      yaziPlugins.glow 
+      yaziPlugins.smart-filter 
       fg = fg
     };
   };
