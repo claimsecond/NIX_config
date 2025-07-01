@@ -44,10 +44,10 @@ in
     theme = { }; 
 
     plugins = { 
-      rich-preview = pkgs.yaziPlugins.rich-preview 
-      glow = pkgs.yaziPlugins.glow 
-      smart-filter = pkgs.yaziPlugins.smart-filter 
-      fg = fg
+      rich-preview = pkgs.yaziPlugins.rich-preview; 
+      glow = pkgs.yaziPlugins.glow; 
+      smart-filter = pkgs.yaziPlugins.smart-filter; 
+      fg = fg;
     };
   };
 
