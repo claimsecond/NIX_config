@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 
+{
   programs.yazi = {
     enable = true; 
     enableBashIntegration = true;
@@ -42,3 +43,4 @@
       fg = pkgs.yaziPlugins.fg;
     };
   }; 
+} 
