@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   fg = pkgs.stdenv.mkDerivation {
-    pname = "fg.yazi";
+    pname = "fr.yazi";
     version = "9bba743";
     src = pkgs.fetchFromGitHub {
       owner = "lpnh";
