@@ -1,10 +1,19 @@
 { config, pkgs, ... }:
 let
-  fg = pkgs.fetchFromGitHub {
-    owner = "lpnh";
-    repo = "fg.yazi";
-    rev = "9bba7430dbcd30995deea600499b069fe6067a3e";
-    hash = "sha256-3VjTL/q4gSDIHyPXwUIQA/26bbhWya+01EZbxSKzzQo=";
+  fg = pkgs.stdenv.mkDerivation {
+    pname = "fg.yazi";
+    version = "9bba743";
+    src = pkgs.fetchFromGitHub {
+      owner = "lpnh";
+      repo = "fg.yazi";
+      rev = "9bba7430dbcd30995deea600499b069fe6067a3e";
+      hash = "sha256-3VjTL/q4gSDIHyPXwUIQA/26bbhWya+01EZbxSKzzQo=";
+    };
+    installPhase = ''
+      mkdir -p $out
+      cp -r $src/* $out/
+      echo 'return dofile("init.lua")' > $out/main.lua
+    '';
   };
 in
 {
