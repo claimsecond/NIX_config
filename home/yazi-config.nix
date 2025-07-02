@@ -10,7 +10,7 @@
       manager.prepend_keymap = [
         { on = [ "F" ]; run = "plugin smart-filter"; desc = "Smart filter"; }
         { on = [ "!" ]; run = "shell $SHELL --block"; desc = "Open shell here"; }
-        { on = [ "f" "g" ]; run = "plugin fr rg"; desc = "Search file by content (rg)"; }
+        { on = [ "f" "g" ]; run = "plugin fg"; desc = "Search file by content (fg)"; }
         { on = [ "f" "a" ]; run = "plugin fr rga"; desc = "Search file by content (rga)"; }
       ];
     };
@@ -41,11 +41,9 @@
       glow = pkgs.yaziPlugins.glow; 
       smart-filter = pkgs.yaziPlugins.smart-filter; 
     };
-  }; 
-}
+  };
 
-# Добавляем fg plugin через home.file
-{
+  # Добавляем fg plugin через home.file
   home.file.".config/yazi/plugins/fg/main.lua".source = builtins.fetchurl {
     url = "https://raw.githubusercontent.com/yazi-rs/fg/main/main.lua";
     sha256 = "0000000000000000000000000000000000000000000000000000";
