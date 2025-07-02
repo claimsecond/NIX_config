@@ -31,6 +31,7 @@
     ripgrep-all
     fzf
     yazi 
+    bat
   ];
 
   nixpkgs.config.allowUnfree = true;
