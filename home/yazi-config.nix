@@ -1,22 +1,5 @@
 { config, pkgs, ... }:
-let
-  fg = pkgs.stdenv.mkDerivation {
-    pname = "fr.yazi";
-    version = "9bba743";
-    src = pkgs.fetchFromGitHub {
-      owner = "lpnh";
-      repo = "fr.yazi";
-      rev = "9bba7430dbcd30995deea600499b069fe6067a3e";
-      hash = "sha256-3VjTL/q4gSDIHyPXwUIQA/26bbhWya+01EZbxSKzzQo=";
-    };
-    installPhase = ''
-      mkdir -p $out
-      cp -r $src/* $out/
-      echo 'return dofile("init.lua")' > $out/main.lua
-    '';
-  };
-in
-{
+
   programs.yazi = {
     enable = true; 
     enableBashIntegration = true;
@@ -56,8 +39,6 @@ in
       rich-preview = pkgs.yaziPlugins.rich-preview; 
       glow = pkgs.yaziPlugins.glow; 
       smart-filter = pkgs.yaziPlugins.smart-filter; 
-      fg = fg;
+      fg = pkgs.yaziPlugins.fg;
     };
-  };
-
-} 
+  }; 
