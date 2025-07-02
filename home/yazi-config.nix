@@ -40,7 +40,14 @@
       rich-preview = pkgs.yaziPlugins.rich-preview; 
       glow = pkgs.yaziPlugins.glow; 
       smart-filter = pkgs.yaziPlugins.smart-filter; 
-      fg = pkgs.yaziPlugins.fg;
     };
   }; 
+}
+
+# Добавляем fg plugin через home.file
+{
+  home.file.".config/yazi/plugins/fg/main.lua".source = builtins.fetchurl {
+    url = "https://raw.githubusercontent.com/yazi-rs/fg/main/main.lua";
+    sha256 = "0000000000000000000000000000000000000000000000000000";
+  };
 } 
