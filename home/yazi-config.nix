@@ -5,7 +5,7 @@ let
     version = "9bba743";
     src = pkgs.fetchFromGitHub {
       owner = "lpnh";
-      repo = "fg.yazi";
+      repo = "fr.yazi";
       rev = "9bba7430dbcd30995deea600499b069fe6067a3e";
       hash = "sha256-3VjTL/q4gSDIHyPXwUIQA/26bbhWya+01EZbxSKzzQo=";
     };
@@ -26,8 +26,8 @@ in
       manager.prepend_keymap = [
         { on = [ "F" ]; run = "plugin smart-filter"; desc = "Smart filter"; }
         { on = [ "!" ]; run = "shell $SHELL --block"; desc = "Open shell here"; }
-        { on = [ "f" "g" ]; run = "plugin fg"; desc = "find file by content (fuzzy match)"; }
-        { on = [ "f" "a" ]; run = "plugin fg --args='rga'"; desc = "find file by content (ripgrep-all)"; }
+        { on = [ "f" "g" ]; run = "plugin fr rg"; desc = "Search file by content (rg)"; }
+        { on = [ "f" "a" ]; run = "plugin fr rga"; desc = "Search file by content (rga)"; }
       ];
     };
 
