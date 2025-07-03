@@ -45,7 +45,7 @@
 
   # Добавляем fg plugin через home.file
   home.file.".config/yazi/plugins/fg/main.lua".source = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/yazi-rs/fg/main/init.lua";
+    url = "https://raw.githubusercontent.com/lpnh/fr.yazi/refs/heads/main/main.lua";
     sha256 = "0000000000000000000000000000000000000000000000000000";
   };
 } 
