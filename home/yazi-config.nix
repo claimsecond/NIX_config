@@ -10,8 +10,8 @@
       manager.prepend_keymap = [
         { on = [ "F" ]; run = "plugin smart-filter"; desc = "Smart filter"; }
         { on = [ "!" ]; run = "shell $SHELL --block"; desc = "Open shell here"; }
-        { on = [ "f" "g" ]; run = [ "plugin" "fg" "--args" "rg" ]; desc = "Search file by content (rg)"; }
-        { on = [ "f" "a" ]; run = [ "plugin" "fg" "--args" "rga" ]; desc = "Search file by content (rga)"; }
+        { on = [ "f" "g" ]; run = "plugin fg --args rg"; desc = "Search file by content (rg)"; }
+        { on = [ "f" "a" ]; run = "plugin fg --args rga"; desc = "Search file by content (rga)"; }
       ];
     };
 
